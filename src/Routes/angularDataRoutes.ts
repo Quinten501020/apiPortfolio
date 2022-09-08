@@ -7,4 +7,4 @@ var csrfProtection = csrf({ cookie: true })
 
 export const router = express.Router();
 
-router.post('/appData' , dataModuleController.appData);
+router.post('/appData', csrfProtection , dataModuleController.appData);

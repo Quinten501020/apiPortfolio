@@ -6,5 +6,5 @@ const csrf = require("csurf");
 const dataModuleController = require("../Controllers/angularDataController");
 var csrfProtection = csrf({ cookie: true });
 exports.router = express.Router();
-exports.router.post('/appData', dataModuleController.appData);
+exports.router.post('/appData', csrfProtection, dataModuleController.appData);
 //# sourceMappingURL=angularDataRoutes.js.map
