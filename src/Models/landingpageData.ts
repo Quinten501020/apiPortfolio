@@ -17,14 +17,21 @@ type landingpageDataDefinition = {
     services: {
         servicesTag: string,
         serviceHeader: string,
-        serviceComp1: {
-            serviceCompHeader: string,
-            serviceCompText: string
-        },
-        serviceComp2: {
-            serviceCompHeader: string,
-            serviceCompText: string
-        }
+        card: [         
+            {
+                serviceCompHeader: string,
+                serviceCompText: string,
+                svgClasses: string,
+                id: number
+
+            },
+            {
+                serviceCompHeader: string,
+                serviceCompText: string
+                svgClasses: string,
+                id: number
+            }
+        ]
     }
     contactme: {
         contactmeTag: string,
@@ -56,14 +63,20 @@ export const landingpageDataModel: landingpageDataDefinition = {
     services: {
         servicesTag: 'Wat bied ik?',
         serviceHeader: 'Buiten school bied ik ook nog een aantal services aan',
-        serviceComp1: {
-            serviceCompHeader: 'Computer reparatie',
-            serviceCompText: 'Ik doe in mijn vrije tijd veel met computers en heb er ondertussen al een aardig handje van. Problemen met uw computer? Stuur gerust een mailtje!' 
-        },
-        serviceComp2: {
-            serviceCompHeader: 'Websites / Apps',
-            serviceCompText: 'Ik ben natuurlijk een echte programmeur voor beroep. In overleg sta ik altijd open websites of apps te maken'
-        }
+        card: [
+            {
+                serviceCompHeader: 'Computer reparatie',
+                serviceCompText: 'Ik doe in mijn vrije tijd veel met computers en heb er ondertussen al een aardig handje van. Problemen met uw computer? Stuur gerust een mailtje!',
+                svgClasses: 'bi bi-arrow-90deg-down text-success',
+                id: 1
+            },
+            {
+                serviceCompHeader: 'Websites / Apps',
+                serviceCompText: 'Ik ben natuurlijk een echte programmeur voor beroep. In overleg sta ik altijd open websites of apps te maken',
+                svgClasses: 'bi bi-bezier text-success',
+                id: 2
+            }
+        ]
     },
     contactme: {
         contactmeTag: 'Contact',
