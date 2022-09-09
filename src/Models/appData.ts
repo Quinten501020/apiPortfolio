@@ -13,13 +13,8 @@ type appDataDefinition = {
 }
 
 export const appDataModel: appDataDefinition = {
-  navbarBrand: 'vandervalkit.nl',
+  navbarBrand: 'vandervalkit',
   customRoutes: [
-    {
-      id: 3,
-      itemName: 'Home',
-      itemPath: '/',
-      displayInNavbar: true,
-    },
+    
   ],
 };

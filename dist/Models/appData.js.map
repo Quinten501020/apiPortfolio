@@ -1,1 +1,1 @@
-{"version":3,"file":"appData.js","sourceRoot":"","sources":["../../src/Models/appData.ts"],"names":[],"mappings":";;;AAca,QAAA,YAAY,GAAsB;IAC7C,WAAW,EAAE,iBAAiB;IAC9B,YAAY,EAAE;QACZ;YACE,EAAE,EAAE,CAAC;YACL,QAAQ,EAAE,MAAM;YAChB,QAAQ,EAAE,GAAG;YACb,eAAe,EAAE,IAAI;SACtB;KACF;CACF,CAAC"}
+{"version":3,"file":"appData.js","sourceRoot":"","sources":["../../src/Models/appData.ts"],"names":[],"mappings":";;;AAca,QAAA,YAAY,GAAsB;IAC7C,WAAW,EAAE,cAAc;IAC3B,YAAY,EAAE,EAEb;CACF,CAAC"}
