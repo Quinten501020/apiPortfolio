@@ -1,0 +1,1 @@
+{"version":3,"file":"aboutmeData.js","sourceRoot":"","sources":["../../src/Models/aboutmeData.ts"],"names":[],"mappings":";;;AAea,QAAA,gBAAgB,GAA0B;IACnD,QAAQ,EAAE;QACN,aAAa,EAAE,aAAa;QAC5B,YAAY,EAAE,WAAW;KAC5B;IACD,QAAQ,EAAE;QACN,aAAa,EAAE,aAAa;QAC5B,YAAY,EAAE,WAAW;KAC5B;IACD,MAAM,EAAE;QACJ,WAAW,EAAE,QAAQ;QACrB,UAAU,EAAE,eAAe;KAC9B;CACJ,CAAC"}
