@@ -1,22 +1,35 @@
 import { Request, Response } from 'express';
 
-import { appDataModel } from './../Models/appData';
-import { landingpageDataModel } from "../Models/landingpageData";
-import { aboutmeDataModel } from "../Models/aboutmeData";
-import { projectsDataModel } from "../Models/projectsData";
+import { getPageData } from "../mariadb";
 
 export const page = (req: Request, res: Response) => {
   switch(req.params.page) {
-    case "app": 
-      res.json(appDataModel);
+    case "app":
+      getPageData('app')
+        .then((row) => {
+          row = JSON.parse(row[0].PageData);
+          res.json(row)
+        })
       break;
     case "landingpage":
-      res.json(landingpageDataModel);
+      getPageData('landingpage')
+        .then((row) => {
+          row = JSON.parse(row[0].PageData);
+          res.json(row)
+        })
       break;
     case 'aboutme':
-      res.json(aboutmeDataModel);
+      getPageData('aboutme')
+        .then((row) => {
+          row = JSON.parse(row[0].PageData);
+          res.json(row)
+        })
       break;
     case 'projects':
-      res.json(projectsDataModel);
+      getPageData('projects')
+        .then((row) => {
+          row = JSON.parse(row[0].PageData);
+          res.json(row)
+        })
   }
 };

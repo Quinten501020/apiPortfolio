@@ -1,6 +1,6 @@
 import * as express from 'express';
 import * as cors from 'cors';
-
+import * as bodyParser from "body-parser";
 
 import * as angularDataRoutes from './Routes/angularDataRoutes';
 
@@ -8,6 +8,7 @@ const app = express();
 const port = 5000;
 
 app.use(cors({origin: 'http://localhost:8080'}));
+app.use(bodyParser.json());
 
 app.use('/angularData', angularDataRoutes.router);
 

@@ -1,23 +1,36 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.page = void 0;
-const appData_1 = require("./../Models/appData");
-const landingpageData_1 = require("../Models/landingpageData");
-const aboutmeData_1 = require("../Models/aboutmeData");
-const projectsData_1 = require("../Models/projectsData");
+const mariadb_1 = require("../mariadb");
 const page = (req, res) => {
     switch (req.params.page) {
         case "app":
-            res.json(appData_1.appDataModel);
+            (0, mariadb_1.getPageData)('app')
+                .then((row) => {
+                row = JSON.parse(row[0].PageData);
+                res.json(row);
+            });
             break;
         case "landingpage":
-            res.json(landingpageData_1.landingpageDataModel);
+            (0, mariadb_1.getPageData)('landingpage')
+                .then((row) => {
+                row = JSON.parse(row[0].PageData);
+                res.json(row);
+            });
             break;
         case 'aboutme':
-            res.json(aboutmeData_1.aboutmeDataModel);
+            (0, mariadb_1.getPageData)('aboutme')
+                .then((row) => {
+                row = JSON.parse(row[0].PageData);
+                res.json(row);
+            });
             break;
         case 'projects':
-            res.json(projectsData_1.projectsDataModel);
+            (0, mariadb_1.getPageData)('projects')
+                .then((row) => {
+                row = JSON.parse(row[0].PageData);
+                res.json(row);
+            });
     }
 };
 exports.page = page;

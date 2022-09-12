@@ -1,4 +1,4 @@
-type appDataDefinition = {
+export type appDataDefinition = {
   navbarBrand: string;
   customRoutes:
     | [
@@ -11,10 +11,3 @@ type appDataDefinition = {
       ]
     | [];
 }
-
-export const appDataModel: appDataDefinition = {
-  navbarBrand: 'vandervalkit',
-  customRoutes: [
-    
-  ],
-};
