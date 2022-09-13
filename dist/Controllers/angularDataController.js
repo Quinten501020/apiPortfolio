@@ -31,6 +31,14 @@ const page = (req, res) => {
                 row = JSON.parse(row[0].PageData);
                 res.json(row);
             });
+            break;
+        case 'landingpage-backoffice':
+            (0, mariadb_1.getPageData)('landingpage-backoffice')
+                .then((row) => {
+                row = JSON.parse(row[0].PageData);
+                res.json(row);
+            });
+            break;
     }
 };
 exports.page = page;

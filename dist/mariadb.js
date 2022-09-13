@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getPageData = void 0;
+exports.updatePageData = exports.getPageData = void 0;
 const mariadb = require("mariadb");
 const connection = mariadb.createPool({
     host: 'localhost',
@@ -20,10 +20,22 @@ const connection = mariadb.createPool({
 function getPageData(page) {
     return __awaiter(this, void 0, void 0, function* () {
         const conn = yield connection.getConnection();
-        const rows = yield conn.query(`SELECT * from pageData WHERE PageName='${page}'`);
+        const rows = yield conn.query(`SELECT * from pagedata WHERE PageName='${page}'`);
         yield conn.release();
         return rows;
     });
 }
 exports.getPageData = getPageData;
+function updatePageData(data) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const page = data.page;
+        delete data.page;
+        const payload = JSON.stringify(data).replace(/'/g, "\\'");
+        const conn = yield connection.getConnection();
+        const rows = yield conn.query(`UPDATE pageData SET PageData='${payload}' WHERE PageName='${page}'`);
+        yield conn.release();
+        return rows;
+    });
+}
+exports.updatePageData = updatePageData;
 //# sourceMappingURL=mariadb.js.map

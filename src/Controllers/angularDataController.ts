@@ -31,5 +31,13 @@ export const page = (req: Request, res: Response) => {
           row = JSON.parse(row[0].PageData);
           res.json(row)
         })
+      break;
+    case 'landingpage-backoffice':
+      getPageData('landingpage-backoffice')
+        .then((row) => {
+          row = JSON.parse(row[0].PageData);
+          res.json(row)
+        })
+      break;
   }
 };

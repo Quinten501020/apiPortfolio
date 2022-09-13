@@ -32,14 +32,6 @@ export type landingpageDataDefinition = {
                 id: number
             }
         ]
-    }
-    contactme: {
-        contactmeTag: string,
-        contactmeHeader: string,
-        contactmePhoneNumberTitle: string,
-        contactmePhoneNumber: string,
-        contactmePhoneNumberShow: boolean,
-        contactmeEmailTitle: string
-        contactmeEmail: string
-    }
+    },
+    page: string
 }
