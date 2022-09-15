@@ -1,8 +1,7 @@
 export type projectsDataDefinition = {
     header: {
         headerTitle: string,
-        headerText: string,
-        headerList: [string, string, string]
+        headerText: string
     }
     projects: {
         project1: {
