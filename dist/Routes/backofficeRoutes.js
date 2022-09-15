@@ -5,4 +5,5 @@ const express = require("express");
 const backOffcieController = require("../Controllers/backOffcieController");
 exports.router = express.Router();
 exports.router.post('/updateData', backOffcieController.updateData);
+exports.router.post('/login', backOffcieController.login);
 //# sourceMappingURL=backofficeRoutes.js.map
