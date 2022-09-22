@@ -1,29 +1,36 @@
-import * as mariadb from 'mariadb';
-import { landingpageDataDefinition } from "./Models/landingpageData";
+import * as mysql from 'mysql';
 
-const connection = mariadb.createPool({
-    host: 'localhost', 
-    user:'root', 
-    password: '',
-    database: 'domein'
+const con = mysql.createConnection({
+  host: "vandervalkit.nl",
+  user: "quintenvandervalk",
+  password: "dMc3f35!5",
+  database: "domein"
 });
 
-export async function getPageData(page: string) {
-  const conn = await connection.getConnection();
-  const rows = await conn.query(`SELECT * from pagedata WHERE PageName='${page}'`);
-  await conn.release()
-  return rows
+con.connect(function(err) {
+  if (err) throw err;
+  console.log('Connected!');
+});
+
+export const getPageData = async (page: string): Promise<any> => {
+  return new Promise(function(resolve, reject) {
+    con.query(`SELECT * FROM pagedata WHERE PageName='${page}'`, function (err, rows) {
+        if (err) {
+            return reject(err);
+        }
+        resolve(rows);
+    })
+  })
 }
 
 export async function updatePageData(data: any) {
   const page = data.page;
   delete data.page;
   const payload: string = JSON.stringify(data).replace(/'/g, "\\'");
-
-  const conn = await connection.getConnection();
-  const rows = await conn.query(`UPDATE pageData SET PageData='${payload}' WHERE PageName='${page}'`);
-
-  await conn.release()
-  return rows
+  con.connect(() => {
+    con.query(`UPDATE pagedata SET PageData='${payload}' WHERE PageName='${page}'`, function(err, rows) {
+      if (err) throw err;
+      return rows
+    });
+  });
 }
-

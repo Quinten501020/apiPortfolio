@@ -3,7 +3,7 @@ import { updatePageData } from "../mariadb";
 
 export const updateData = (req: Request, res: Response) => {
   updatePageData(req.body)
-    .then((row) => {
+    .then(() => {
       res.json({msg: "page has been updated"})
     })
 }

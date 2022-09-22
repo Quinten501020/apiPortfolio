@@ -1,43 +1,42 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.page = void 0;
 const mariadb_1 = require("../mariadb");
+function handleData(page, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        yield (0, mariadb_1.getPageData)(page)
+            .then((row) => {
+            row = JSON.parse(row[0].PageData);
+            console.log(row);
+            res.json(row);
+        });
+    });
+}
 const page = (req, res) => {
     switch (req.params.page) {
         case "app":
-            (0, mariadb_1.getPageData)('app')
-                .then((row) => {
-                row = JSON.parse(row[0].PageData);
-                res.json(row);
-            });
+            handleData('app', res);
             break;
         case "landingpage":
-            (0, mariadb_1.getPageData)('landingpage')
-                .then((row) => {
-                row = JSON.parse(row[0].PageData);
-                res.json(row);
-            });
+            handleData('landingpage', res);
             break;
         case 'aboutme':
-            (0, mariadb_1.getPageData)('aboutme')
-                .then((row) => {
-                row = JSON.parse(row[0].PageData);
-                res.json(row);
-            });
+            handleData('aboutme', res);
             break;
         case 'projects':
-            (0, mariadb_1.getPageData)('projects')
-                .then((row) => {
-                row = JSON.parse(row[0].PageData);
-                res.json(row);
-            });
+            handleData('projects', res);
             break;
         case 'landingpage-backoffice':
-            (0, mariadb_1.getPageData)('landingpage-backoffice')
-                .then((row) => {
-                row = JSON.parse(row[0].PageData);
-                res.json(row);
-            });
+            handleData('landingpage-backoffice', res);
             break;
     }
 };

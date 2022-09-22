@@ -1,4 +1,4 @@
-type aboutmeDataDefinition = {
+export type aboutmeDataDefinition = {
     wieBenIK: {
         wiebenikTitle: string,
         wiebenikText: string

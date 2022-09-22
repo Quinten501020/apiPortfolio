@@ -4,7 +4,7 @@ exports.login = exports.updateData = void 0;
 const mariadb_1 = require("../mariadb");
 const updateData = (req, res) => {
     (0, mariadb_1.updatePageData)(req.body)
-        .then((row) => {
+        .then(() => {
         res.json({ msg: "page has been updated" });
     });
 };

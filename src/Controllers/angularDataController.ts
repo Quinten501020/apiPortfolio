@@ -2,42 +2,31 @@ import { Request, Response } from 'express';
 
 import { getPageData } from "../mariadb";
 
+async function handleData(page: string, res: Response) {
+  await getPageData(page)
+  .then((row: any) => {
+    row = JSON.parse(row[0].PageData);
+    console.log(row)
+    res.json(row)
+  })
+}
+
 export const page = (req: Request, res: Response) => {
   switch(req.params.page) {
     case "app":
-      getPageData('app')
-        .then((row) => {
-          row = JSON.parse(row[0].PageData);
-          res.json(row)
-        })
+      handleData('app', res)
       break;
     case "landingpage":
-      getPageData('landingpage')
-        .then((row) => {
-          row = JSON.parse(row[0].PageData);
-          res.json(row)
-        })
+      handleData('landingpage', res)
       break;
     case 'aboutme':
-      getPageData('aboutme')
-        .then((row) => {
-          row = JSON.parse(row[0].PageData);
-          res.json(row)
-        })
+      handleData('aboutme', res)
       break;
     case 'projects':
-      getPageData('projects')
-        .then((row) => {
-          row = JSON.parse(row[0].PageData);
-          res.json(row)
-        })
+      handleData('projects', res)
       break;
     case 'landingpage-backoffice':
-      getPageData('landingpage-backoffice')
-        .then((row) => {
-          row = JSON.parse(row[0].PageData);
-          res.json(row)
-        })
+      handleData('landingpage-backoffice', res)
       break;
   }
 };
